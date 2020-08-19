@@ -8,6 +8,8 @@ import {
     DELETE_STREAM,
     EDIT_STREAM
 } from './types'
+//history object imported to allow programatic routing
+import history from '../history'
 
 
 
@@ -25,7 +27,6 @@ export const signOut = () => {
 }
 
 export const createStream = (formValues) => {
-
     return async (dispatch, getState) => {
             // We get the userID and add it to the list record so we can later know who created the record
         const { userId } = getState().auth
@@ -34,6 +35,8 @@ export const createStream = (formValues) => {
             type: CREATE_STREAM,
             payload: response.data
         })
+        //Do some programmatic navigation to get user back to root route to list of streams
+        history.push('/')
     }
 }
 
