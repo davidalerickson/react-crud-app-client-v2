@@ -79,5 +79,8 @@ export const deleteStream = (id) => {
             type: DELETE_STREAM,
             payload: id
         })
+        //Do some programmatic navigation to get user back to root route to list of streams
+        history.push('/')
     }
+
 }
