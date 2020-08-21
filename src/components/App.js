@@ -1,5 +1,5 @@
 import React from 'react'
-import {Router, Route, Switch } from 'react-router-dom'
+import {HashRouter, Router, Route, Switch } from 'react-router-dom'
 import StreamCreate from './streams/StreamCreate'
 import StreamDelete from './streams/StreamDelete'
 import StreamEdit from './streams/StreamEdit'
@@ -12,7 +12,7 @@ import history from '../history'
 const App = () => {
     return (
         <div className="ui container">
-            <Router history={history}>
+            <HashRouter basename='/' history={history}>
                 <div>
                     <Header/>
                     <Switch>
@@ -23,7 +23,7 @@ const App = () => {
                         <Route path="/streams/:id" exact component={StreamShow}/>
                     </Switch>  
                 </div>
-            </Router>
+            </HashRouter>
         </div>
     )
 }
